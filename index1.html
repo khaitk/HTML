@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script type="text/javascript">
+		function sukien(){
+			var name = document.getElementById("name");
+			var matkhau = document.getElementById("matkhau");
+			var nghenghiep = document.getElementById("nghenghiep");
+			var tuoi = document.getElementById("tuoi");
+
+			if (name == "" || email == "" || matkhau == "" || tuoi == "" || nghenghiep == "") {
+				alert("Nhap lai");
+			}else{
+				kiemtraname();
+				kiemtramatkhau();
+				kiemtranghenghiep();
+				check_email();
+				kiemtratuoi();
+
+			}
+		}
+		function check_email(){
+			var email = document.getElementById("email");
+			if(email!="" || pass!=""){
+				var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		        if (!filter.test(email.value)) {
+		            alert('Nhap nhu vi du : khaitk@gmail.com\nVi gmail ban nhap sai');
+		            email.focus;
+		            return false;
+		        }
+		        else
+		        {
+		            alert('Email Hop le');
+		        }
+			}
+		}
+		function kiemtraname(){
+			var name = document.getElementById("name").value;
+			if(name.length >=30){
+				alert("Name Khong duoc qua 30");
+			}
+		}
+		function kiemtramatkhau(){
+			var matkhau = document.getElementById("matkhau").value;
+			if(matkhau == ""){
+				alert("Mat khau khong duoc de trong");
+			}
+		}
+		function kiemtranghenghiep(){
+			var nghenghiep = document.getElementById("nghenghiep").value;
+			if(nghenghiep == ""){
+				alert("nghenghiep khong duoc de trong");
+			}
+		}
+		function kiemtratuoi(){
+			var tuoi = parseInt(document.getElementById("tuoi").value);
+			if(tuoi <= 18 || tuoi >=40){
+				alert("tuoi phai tu 18 - 40");
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="">
+		<table>
+			<tr>
+				<td>Ten dang nhap</td>
+				<td> <input type="text" id="name"> </td>
+			</tr>
+			<tr>
+				<td>Mat khau : </td>
+				<td> <input type="text" id="matkhau"> </td>
+			</tr>
+			<tr>
+				<td>email</td>
+				<td> <input type="text" id="email"> </td>
+			</tr>
+			<tr>
+				<td>Nghe nghiep</td>
+				<td> <select name="" >
+					<option value="" id="nghenghiep">Ky su</option>
+					<option value="" id="nghenghiep">Giao su</option>}					
+				</select></td>
+			</tr>
+			<tr>
+				<td>Tuoi</td>
+				<td> <input type="text" id="tuoi"> </td>
+			</tr>
+			<tr>
+				<td>Gioi tinh</td>
+				<td> <input type="radio" name="gt" value="0" id="nam">Nam
+					<input type="radio" name="gt" value="1" id="nu">Nu</td>
+			</tr>
+			<tr>
+				<td colspan="2"> <button type="button" onclick="sukien()">Dang Ky</button> </td>
+			</tr>
+            <tr>
+            	<td colspan="2">Ban da co tai khoan > Vui long click <a href="">Dang nhap</a></td>
+            </tr>
+		</table>
+	</form>
+</body>
+</html>

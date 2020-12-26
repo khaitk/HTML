@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS</title>
+	<link rel="stylesheet" href="css/css.css">
+	<script type="text/javascript">
+
+		function sole(){
+			var a = parseInt(document.getElementById("a").value);
+			var b = parseInt(document.getElementById("b").value);
+
+			if(a < b){
+				var tong=0;
+				for(var x = a; x < b; x++){
+					if(x%2 != 0){
+						tong = tong + x;
+					}
+				}
+				document.getElementById("ketqua").innerHTML = tong;
+			}else{
+				document.getElementById("ketqua").innerHTML = 'Hay nhap a < b';
+			}
+		}
+		function mu(){
+			var a = parseInt(document.getElementById("c").value);
+			var b = parseInt(document.getElementById("d").value);
+			var ketqua = Math.pow(a,b);
+			document.getElementById("ketqua1").innerHTML = ketqua;
+		}
+
+		function check_email_trong(){
+			var email = document.getElementById("email").value;
+			var pass = document.getElementById("pass").value;
+
+			if (email == "" || pass=="") {
+				alert("Khong duoc de trong");
+			}else{
+				check_email();
+			}
+		}
+
+		function check_email(){
+			var email = document.getElementById("email");
+			if(email!="" || pass!=""){
+				var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		        if (!filter.test(email.value)) {
+		            alert('Nhap nhu vi du : khaitk@gmail.com\nVi gmail ban nhap sai');
+		            email.focus;
+		            return false;
+		        }
+		        else
+		        {
+		            alert('Hop le');
+		        }
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<div class="khung">
+		<div class="tinhtoan">
+			<input type="text" id="a" placeholder="nhap a">
+			<input type="text" id="b" placeholder="nhap b">
+			<div class="c">Result : <div id="ketqua"></div></div>
+			<button type="button" id="text" onclick="sole()">Tính toán</button>
+		</div>
+		<div class="tinhtoan">
+			<input type="text" id="c" placeholder="nhap c">
+			<input type="text" id="d" placeholder="nhap d">
+			<div class="c">Result : <div id="ketqua1"></div></div>
+			<button type="button" id="text" onclick="mu()">Tính toán</button>		
+		</div>
+		<div class="tinhtoan">
+			<form name="myform" method="post">
+				<input type="text" id="email" placeholder="nhap email">
+				<!-- <button type="button" id="text" onclick="check_email()">Check email</button> -->
+				<input type="password" id="pass" placeholder="nhap pass">
+				<div class="c">Result : <div id="ketqua2"></div></div>
+				<button type="button" id="text" onclick="check_email_trong()">Check email</button>
+			</form>
+		</div>
+	</div>
+	
+
+
+</body>
+</html>
